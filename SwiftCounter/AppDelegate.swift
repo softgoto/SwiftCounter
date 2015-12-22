@@ -12,10 +12,22 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var rootVC: ViewController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        rootVC = ViewController()
+        
+        self.window?.rootViewController = rootVC
+        
+        self.window?.backgroundColor = UIColor.whiteColor()
+        self.window?.makeKeyAndVisible()
+        
+        
+        application.registerUserNotificationSettings ( UIUserNotificationSettings (forTypes: [UIUserNotificationType.Sound,  UIUserNotificationType.Alert, UIUserNotificationType.Badge], categories:  nil ))
+        
         return true
     }
 
